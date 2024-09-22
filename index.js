@@ -39,5 +39,10 @@ app.post("/edit",function(req, res){
     // console.log(req.body);
 });
 
+app.get("/delete/:filename",function(req,res,next){
+    fs.unlink(`./files/${req.params.filename}`,function(err){
+        res.redirect("/")
+    });
+});
 
 app.listen(3000);
